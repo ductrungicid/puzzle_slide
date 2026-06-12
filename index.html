@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <nav class="top-tabs" aria-label="Application sections">
+      <button id="settings-tab" class="tab-button active" type="button" title="Settings" aria-label="Settings">
+        <img src="settings.png" alt="" class="tab-icon">
+      </button>
+      <button id="play-tab" class="tab-button" type="button" title="Play" aria-label="Play">
+        <img src="play.png" alt="" class="tab-icon">
+      </button>
+    </nav>
+
+    <section id="setup-screen" class="screen active">
+      <div class="panel setup-panel">
+        <div>
+          <p class="eyebrow">Sliding Puzzle</p>
+          <h1>Choose the setup and start</h1>
+          <p class="intro">
+            Rearrange the picture by sliding tiles next to the empty slot up, down, left,
+            or right until the image is complete again.
+          </p>
+        </div>
+
+        <div class="settings-grid">
+          <label class="field">
+            <span>Columns</span>
+            <input id="cols-input" type="number" min="2" max="10" value="3">
+          </label>
+
+          <label class="field">
+            <span>Rows</span>
+            <input id="rows-input" type="number" min="2" max="10" value="5">
+          </label>
+        </div>
+
+        <div class="field">
+          <span>Image</span>
+          <select id="image-select"></select>
+        </div>
+
+        <div class="field">
+          <span>Image mode</span>
+          <div class="mode-switch" role="tablist" aria-label="Image mode">
+            <button id="mode-sketch" class="mode-button active" type="button">Sketch</button>
+            <button id="mode-crop" class="mode-button" type="button">Crop</button>
+          </div>
+          <p class="field-hint">Sketch keeps the full image ratio. Crop fills the puzzle ratio.</p>
+        </div>
+
+        <label class="upload-box" for="image-upload">
+          <strong>Or upload an image</strong>
+          <span>Supports JPG, PNG, WEBP</span>
+          <input id="image-upload" type="file" accept="image/*">
+        </label>
+
+        <div class="preview-card">
+          <div class="preview-header">
+            <h2>Preview</h2>
+            <span id="preview-label">Sample image</span>
+          </div>
+          <div id="preview-frame" class="preview-frame crop-editor">
+            <img id="setup-preview" alt="Preview of the selected image" draggable="false">
+            <div id="crop-hint" class="crop-hint">Drag to reposition the crop</div>
+          </div>
+        </div>
+
+        <button id="confirm-button" class="primary-button" type="button">Confirm and Play</button>
+      </div>
+    </section>
+
+    <section id="game-screen" class="screen">
+      <div class="game-layout">
+        <aside class="panel side-panel">
+          <button id="restart-button" class="tab-button sidebar-action-button" type="button">Play again</button>
+          <div class="sample-card">
+            <h2>Reference image</h2>
+            <div class="sample-frame">
+              <img id="sample-image" alt="Reference image">
+            </div>
+          </div>
+          <div class="status-card">
+            <p id="move-counter">Moves: 0</p>
+            <p id="game-message">Slide the tiles to rebuild the full picture.</p>
+          </div>
+        </aside>
+
+        <section class="panel board-panel">
+          <div class="board-header">
+            <div>
+              <p class="eyebrow">Puzzle Board</p>
+              <h2 id="board-title">Ready to play</h2>
+            </div>
+          </div>
+          <div id="board" class="board" aria-label="Sliding puzzle board"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

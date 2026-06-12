@@ -1,0 +1,18 @@
+# Local Vercel metadata
+.vercel/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

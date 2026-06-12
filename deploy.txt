@@ -1,0 +1,16 @@
+echo "# puzzle_slide" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ductrungicid/puzzle_slide.git
+git push -u origin main
+
+
+--UPDATE
+
+git add .
+git commit -m "Update Game"
+git push origin main
+
+Ductrung@0308
