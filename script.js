@@ -75,6 +75,7 @@ const previewLabel = document.getElementById("preview-label");
 const confirmButton = document.getElementById("confirm-button");
 const restartButton = document.getElementById("restart-button");
 const sampleImage = document.getElementById("sample-image");
+const mobileSampleImage = document.getElementById("mobile-sample-image");
 const moveCounter = document.getElementById("move-counter");
 const gameMessage = document.getElementById("game-message");
 const boardTitle = document.getElementById("board-title");
@@ -233,6 +234,7 @@ function clampGridValue(value) {
 
 function updatePreview(src, label) {
   sampleImage.src = src;
+  mobileSampleImage.src = src;
   previewLabel.textContent = label;
 }
 
@@ -316,11 +318,15 @@ function createSolvedBoard() {
 function renderBoard() {
   boardElement.innerHTML = "";
   const tileSize = computeTileSize();
+  const boardPanel = boardElement.parentElement;
+  const boardHeader = boardElement.previousElementSibling;
 
   boardElement.style.gridTemplateColumns = `repeat(${state.cols}, ${tileSize}px)`;
   boardElement.style.gridTemplateRows = `repeat(${state.rows}, ${tileSize}px)`;
   boardElement.style.setProperty("--tile-cols", state.cols);
   boardElement.style.setProperty("--tile-rows", state.rows);
+  boardPanel.style.setProperty("--mobile-preview-size", `${tileSize}px`);
+  boardPanel.style.setProperty("--mobile-preview-top", `${boardHeader.offsetHeight}px`);
   boardElement.style.marginTop = `${tileSize + 8}px`;
 
   renderAuxiliarySlot(tileSize);
