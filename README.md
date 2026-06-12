@@ -41,3 +41,4 @@ Neu muon mo rong de luu du lieu dung chung tren web, xem:
 ```txt
 supabase/setup.sql
 ```
+"# puzzle_slide" 
